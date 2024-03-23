@@ -65,7 +65,7 @@ public class CusLoginGoogleServlet extends HttpServlet {
         } catch (Exception e) {
             log("Error at LoginGoogleHandler: " + e.toString());
             // Handle error scenario, redirect to an error page, etc.
-            response.sendRedirect("com_login");
+            response.sendRedirect("c_login.jsp");
         }
 
     }

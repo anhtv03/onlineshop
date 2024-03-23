@@ -34,10 +34,18 @@ public class ComResetPasswordServlet extends HttpServlet {
         email = (email == null) ? "" : email;
 
         Account acc = acc_dao.getByEmailStatus(email, "on");
+        
         if (acc == null || email.isEmpty()) {
             request.setAttribute("emailErr", "Địa chỉ email không tồn tại! ");
             request.getRequestDispatcher("c_resetpassword.jsp").forward(request, response);
+            return;
         } 
+        
+        if(acc.getAccPass().isEmpty()){
+            request.setAttribute("emailErr", "Tài khoản chưa có mật khẩu!");
+            request.getRequestDispatcher("c_resetpassword.jsp").forward(request, response);
+            return;
+        }
         
         String token = Token.generateToken(acc.getAccId(), acc.getAccEmail(), 1);
 

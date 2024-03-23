@@ -159,7 +159,7 @@
                     <p style="text-align:center" > Hoặc </p>
 
                     <div class="social-login">
-                        <a class="btn google-btn" style="height: 2.5rem;" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:9999/onlineshop/cus_googlelogin&response_type=code&client_id=286912111404-bm0reb1muj96f9n55sm1tkadi6gq1c3v.apps.googleusercontent.com&approval_prompt=force">
+                        <a class="btn google-btn" style="height: 2.5rem;" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:9999/onlineshopping/cus_googlelogin&response_type=code&client_id=286912111404-bm0reb1muj96f9n55sm1tkadi6gq1c3v.apps.googleusercontent.com&approval_prompt=force">
                             <i class="fab fa-google-plus-g"></i>Google
                         </a>
                     </div>
