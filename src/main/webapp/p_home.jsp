@@ -1124,63 +1124,53 @@
         <!-- Header Section End -->
 
         <!-- Categories Section Begin -->
-        <section class="categories">
+         <section class="categories">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 p-0">
                         <div class="categories__item categories__large__item set-bg" 
-                             data-setbg="Image/Accessory/home_daisuthuonghieu.jpg">
+                             data-setbg="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/433972497_1122453465692223_6159068774087137393_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHRv848gnc3k57soUc1BWKUWy4ew2Y6lM1bLh7DZjqUzRkhyMZoTNzirIqP4OtiLEIg9Daoci-A1TyGob6ZJmGf&_nc_ohc=qAnatL3-DfUAX-j08df&_nc_ht=scontent.fhan2-3.fna&oh=03_AdSHCYCHvPZ-8fJe9AIMi4ehmtJxdnRU9hBFmYRVa_QOKg&oe=662CBB87">
                             <!--data-setbg="$//{ProDaoSet[3].proImgDefault}">-->
-                            <div class="categories__text">
-                                <h1>Set Quần Áo</h1>
-                                <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
-                                    edolore magna aliquapendisse ultrices gravida.</p>
-
+                            <div class="categories__text" style="margin-top: -25rem;">
+                                <p style="font-family: Cookie, cursive; color: #FFF;font-size: 25px;">Muốn ăn gạo thì trồng lúa 
+                                    <br/> Muốn làm công chúa ghé ASHION shop em ❤</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0" >
-                                <div class="categories__item set-bg" data-setbg="${ProDaoAo[9].proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;
-                                         padding: 10px;
-                                         background: rgb(212 201 201 / 30%);" >
+                                <div class="categories__item set-bg" data-setbg="${rdnumAo.proImgDefault}">
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);" >
                                         <h4 >Áo</h4>
-                                        <p style="color: #ffffff">${countAo} items</p>
+                                        <p style="color: #ffffff">${countAo} sản phẩm</p>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg" data-setbg="${ProDaoQuan[9].proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;
-                                         padding: 10px;
-                                         background: rgb(212 201 201 / 30%);">
+                                <div class="categories__item set-bg" data-setbg="${rdnumQuan.proImgDefault}">
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);;">
                                         <h4>Quần</h4>
-                                        <p style="color: #ffffff">${countQuan} items</p>
+                                        <p style="color: #ffffff">${countQuan} sản phẩm</p>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg" data-setbg="${ProDaoVay[1].proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;
-                                         padding: 10px;
-                                         background: rgb(212 201 201 / 30%);">
+                                <div class="categories__item set-bg" data-setbg="${rdnumVay.proImgDefault}">
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);">
                                         <h4>Váy</h4>
-                                        <p style="color: #ffffff">${countVay} items</p>
+                                        <p style="color: #ffffff">${countVay} sản phẩm</p>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg" data-setbg="${ProDaoLot[5].proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;
-                                         padding: 10px;
-                                         background: rgb(212 201 201 / 30%);">
+                                <div class="categories__item set-bg" data-setbg="${rdnumLot.proImgDefault}">
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);">
                                         <h4>Ðồ lót</h4>
-                                        <p style="color: #ffffff">${countLot} items</p>
+                                        <p style="color: #ffffff">${countLot} sản phẩm</p>
 
                                     </div>
                                 </div>

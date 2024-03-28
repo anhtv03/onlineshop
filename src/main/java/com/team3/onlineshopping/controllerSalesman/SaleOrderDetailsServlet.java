@@ -73,10 +73,8 @@ public class SaleOrderDetailsServlet extends HttpServlet {
         PaymentHistory pay = pay_dao.getByOrderId(orderId);
         String payMethod = "";
 
-        if (pay != null && pay.getPayMethod().equalsIgnoreCase("VNPay")) {
+        if (pay != null) {
             payMethod = "VNPAY";
-        } else {
-            payMethod = "Trực tiếp";
         }
 
         String status = "";

@@ -213,6 +213,7 @@ public class SaleOrderServlet extends HttpServlet {
         }
         request.setAttribute("startIndex", startIndex);
         request.setAttribute("pageNumber", indexPage);
+        request.setAttribute("type", "delivered");
         request.getRequestDispatcher("s_orderdelivered.jsp").forward(request, response);
     }
 
@@ -259,7 +260,8 @@ public class SaleOrderServlet extends HttpServlet {
         }
         request.setAttribute("startIndex", startIndex);
         request.setAttribute("pageNumber", indexPage);
-        request.getRequestDispatcher("s_orderdelivered.jsp").forward(request, response);
+        request.setAttribute("type", "cancelled");
+        request.getRequestDispatcher("s_ordercancelled.jsp").forward(request, response);
     }
 
     protected void doGetPending(HttpServletRequest request, HttpServletResponse response)
@@ -305,7 +307,8 @@ public class SaleOrderServlet extends HttpServlet {
         }
         request.setAttribute("startIndex", startIndex);
         request.setAttribute("pageNumber", indexPage);
-        request.getRequestDispatcher("s_orderdelivered.jsp").forward(request, response);
+        request.setAttribute("type", "pending");
+        request.getRequestDispatcher("s_orderpending.jsp").forward(request, response);
     }
 
     protected void doGetDelivering(HttpServletRequest request, HttpServletResponse response)
@@ -351,7 +354,8 @@ public class SaleOrderServlet extends HttpServlet {
         }
         request.setAttribute("startIndex", startIndex);
         request.setAttribute("pageNumber", indexPage);
-        request.getRequestDispatcher("s_orderdelivered.jsp").forward(request, response);
+        request.setAttribute("type", "delivering");
+        request.getRequestDispatcher("s_orderdelivering.jsp").forward(request, response);
     }
 
 }

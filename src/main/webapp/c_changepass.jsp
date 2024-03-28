@@ -148,7 +148,7 @@
             <c:if test="${sessionScope.account.roleId == 1}">
                 <!-- Logo -->
                 <div class="logo-sn ms-d-block-lg">
-                    <img style="max-width: 255px;" src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.15752-9/423472062_1513941472794031_1512193570186889795_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=XRT4JijyDEAAX-eSnkR&_nc_oc=AQm7Ls7q3hNa9aYBBL0rALnbrxnhJTVTmyqQZmNbfKkE-l4E6aJMK9MC3cKzgIiFiPI&_nc_ht=scontent.fsgn2-7.fna&oh=03_AdTAZOY-GW5Nt09boLVoOBjnB7BNACIroAk--SEpLIMgYw&oe=65FA4C89" alt="logo">
+                    <img style="max-width: 255px;" src="Image/Avatar/AdminLogo.png" alt="logo">
                 </div>
                 <br>
                 <!-- Navigation -->
@@ -182,7 +182,7 @@
                 <c:if test="${sessionScope.account.roleId == 2}">
                     <!-- Logo -->
                     <div class="logo-sn ms-d-block-lg">
-                        <img style="max-width: 255px;" src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/423422529_931280068324876_5402123020227114441_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=GJIOVC0k1PsAX_l36k0&_nc_ht=scontent.fhan18-1.fna&oh=03_AdT2vGnLNVUhiU4H96X6QdvfqioLWRYCd9NIi8nXo46hXg&oe=65FA97B9" alt="logo">
+                        <img style="max-width: 255px;" src="Image/Avatar/salesmanLogo.png" alt="logo">
                     </div>
                     <br>
                     <!-- Navigation -->
@@ -219,7 +219,7 @@
                     <c:if test="${sessionScope.account.roleId == 3}">
                         <!-- Logo -->
                         <div class="logo-sn ms-d-block-lg">
-                            <img style="max-width: 255px;" src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/423568413_220611387798284_6265991015599051178_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6xm1kK9w87wAX9TEvv_&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTwMqeyx_8lcqp09mOKsXlRojFzIL02Pvvb9Y3q1WDgZA&oe=65FA4050" alt="logo">
+                            <img style="max-width: 255px;" src="Image/Avatar/mktLogo.png" alt="logo">
                         </div>
                         <br>
                         <!-- Navigation -->

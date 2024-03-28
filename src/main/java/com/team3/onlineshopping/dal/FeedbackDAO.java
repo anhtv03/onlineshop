@@ -53,6 +53,7 @@ public class FeedbackDAO extends DBContext implements IDAO<Feedback> {
             st.setInt(4, t.getCusId());
             st.setInt(5, t.getOrId());
             st.executeUpdate();
+            st.close(); // Đóng PreparedStatement
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -140,7 +141,8 @@ public class FeedbackDAO extends DBContext implements IDAO<Feedback> {
                         rs.getInt(6));
                 return u;
             }
-
+            rs.close(); // Đóng ResultSet
+            st.close(); // Đóng PreparedStatement
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

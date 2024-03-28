@@ -262,7 +262,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/423422529_931280068324876_5402123020227114441_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=GJIOVC0k1PsAX_l36k0&_nc_ht=scontent.fhan18-1.fna&oh=03_AdT2vGnLNVUhiU4H96X6QdvfqioLWRYCd9NIi8nXo46hXg&oe=65FA97B9" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/salesmanLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -471,7 +471,7 @@
                                                         <td class="text-right">${orderPrice}đ</td>
                                                         <td class="text-center">
                                                             <span>
-                                                                <a href="sale_orderdetails?orderId=${or_list.orId}">
+                                                                <a href="sale_orderdetails?orderId=${or_list.orId}&type=${type}">
                                                                     <i class="fas fa-eye" style="color: #b1a9a9; font-size: 14px;"></i>
                                                                 </a>
                                                                 <a href="javascript:void(0)" id="deleteButton" onclick="confirmDelete(${or_list.orId})">

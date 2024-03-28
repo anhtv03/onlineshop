@@ -26,61 +26,32 @@ import java.util.List;
  */
 public class CusMyOrderServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CusMyOrderServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CusMyOrderServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    CustomerDAO cus_dao = new CustomerDAO();
+    OrderDetailsDAO orde_dao = new OrderDetailsDAO();
+    OrderDAO or_dao = new OrderDAO();
+    List<Order> order = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        CustomerDAO cus_dao = new CustomerDAO();
-        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-        OrderDAO or_dao = new OrderDAO();
-
         String type = request.getParameter("type");
-
-        System.out.println("Vao day 1");
 
         Account acc = (Account) session.getAttribute("account");
         Customer cus = cus_dao.getByAccountId(acc.getAccId());
-        List<Order> order = new ArrayList<>();
-
-        System.out.println("Vao day 2");
+        int cusId = cus.getCusId();
 
         if (type == null || type.equalsIgnoreCase("all")) {
-            order = (or_dao.getByCusId(cus.getCusId()));
+            order = (or_dao.getByCusId(cusId));
             type = "all";
         } else if (type.equalsIgnoreCase("delivered")) {
-            order = (or_dao.getByCusId(cus.getCusId(), "delivered"));
+            order = (or_dao.getByCusId(cusId, "delivered"));
         } else if (type.equalsIgnoreCase("delivering")) {
-            order = (or_dao.getByCusId(cus.getCusId(), "delivering"));
+            order = (or_dao.getByCusId(cusId, "delivering"));
         } else if (type.equalsIgnoreCase("cancelled")) {
-            order = (or_dao.getByCusId(cus.getCusId(), "cancelled"));
+            order = (or_dao.getByCusId(cusId, "cancelled"));
         } else if (type.equalsIgnoreCase("pending")) {
-            order = (or_dao.getByCusId(cus.getCusId(), "pending"));
+            order = (or_dao.getByCusId(cusId, "pending"));
         }
 
         request.setAttribute("type", type);

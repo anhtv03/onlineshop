@@ -110,7 +110,8 @@ public class SystemFilter implements Filter {
         //========================= ROLE GUEST ==========================
         if (account == null) {
             if (uri.equals("/com_upprofile") || uri.equals("/com_changepass")
-                    || uri.equals("/com_upavar") || uri.equals("/com_logout")) {
+                    || uri.equals("/com_upavar") ) {
+//                || uri.equals("/com_logout")
                 // Kiểm tra nếu người dùng không phải là quản trị viên
                 res.sendRedirect(ACCESS_DENIAL_PAGE);
                 return;

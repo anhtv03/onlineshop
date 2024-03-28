@@ -334,7 +334,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/423568413_220611387798284_6265991015599051178_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6xm1kK9w87wAX9TEvv_&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTwMqeyx_8lcqp09mOKsXlRojFzIL02Pvvb9Y3q1WDgZA&oe=65FA4050" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/mktLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -481,73 +481,77 @@
 
                         <!-- Table Product -->
                         <div class="ms-panel">
-                            <div class="ms-panel-header">
-                                <h6>Danh sách phản hồi</h6>
-                            </div>
-                            <div class="ms-panel-body">
+                            <div class="ms-panel-body pt-0">
                                 <div class="table-responsive">
-
-
                                     <div class="ms-panel">
                                         <form action="mkt_feedbacklist" id="user_list" method="post">
                                             <div class="ms-panel-header" style="border-bottom: 0;">
                                                 <h6 style="color: #FF8306;">Danh sách phản hồi</h6>
                                             </div>
-                                            <div class="ms-panel-header filter" style="border-bottom: 0; padding-bottom: 0;">
-
-
-                                                <div class="filter__body">
-                                                    <div class="row mt-2">
-                                                        <div class="common mb-4 col-md-3">
-                                                            <p class="common__title">Bài viết</p>
-                                                            <input type="text" class="form-control" name="textSearch" oninput="movePage(1)"
-                                                                   id="textSearch" value="${param.textSearch}" />
-                                                        </div>
-
-                                                        <div class="common mb-4 col-md-3">
-                                                            <!-- <p class="common__title">Email</p> -->
-                                                        </div>
-
-                                                        <div class="common mb-4 col-md-3">
-                                                            <p class="common__title">Từ ngày</p>
-                                                            <input type="date" class="form-control" id="dateBegin" onchange="movePage(1)"
-                                                                   name="dateBegin" value="${param.dateBegin}" />
-                                                        </div>
-
-                                                        <div class="common mb-4 col-md-3">
-                                                            <p class="common__title">Đến ngày</p>
-                                                            <input type="date" class="form-control" id="dateEnd" onchange="movePage(1)"
-                                                                   name="dateEnd" value="${param.dateEnd}" />
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <!--<input type="" class="filter__btn" value="Tìm kiếm" onclick="movePage(1)">-->
-                                                <!--                                    <a href="#" class="filter__btn" onclick="movePage(1)"
-                                                                                       style="color: rgb(11, 152, 11);">Tìm kiếm</a>-->
-                                            </div>
+                                            <!--                                            <div class="ms-panel-header filter" style="border-bottom: 0; padding-bottom: 0;">
+                                                                                            <div class="filter__body">
+                                                                                                <div class="row mt-2">
+                                                                                                    <div class="common mb-4 col-md-3">
+                                                                                                        <p class="common__title">Bài viết</p>
+                                                                                                        <input type="text" class="form-control" name="textSearch" oninput="movePage(1)"
+                                                                                                               id="textSearch" value="${param.textSearch}" />
+                                                                                                    </div>
+                                                                                                    <div class="common mb-4 col-md-3">
+                                                                                                         <p class="common__title">Email</p> 
+                                                                                                    </div>
+                                                                                                    <div class="common mb-4 col-md-3">
+                                                                                                        <p class="common__title">Từ ngày</p>
+                                                                                                        <input type="date" class="form-control" id="dateBegin" onchange="movePage(1)"
+                                                                                                               name="dateBegin" value="${param.dateBegin}" />
+                                                                                                    </div>
+                                            
+                                                                                                    <div class="common mb-4 col-md-3">
+                                                                                                        <p class="common__title">Đến ngày</p>
+                                                                                                        <input type="date" class="form-control" id="dateEnd" onchange="movePage(1)"
+                                                                                                               name="dateEnd" value="${param.dateEnd}" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <input type="" class="filter__btn" value="Tìm kiếm" onclick="movePage(1)">
+                                                                                                                                <a href="#" class="filter__btn" onclick="movePage(1)"
+                                                                                                                                   style="color: rgb(11, 152, 11);">Tìm kiếm</a>
+                                                                                        </div>-->
 
                                             <div class="ms-panel-body">
                                                 <div class="table-responsive">
-                                                    <div class="show">
-                                                        <p class="show__title">Đánh giá</p>
-                                                        <select name="quantityPost" id="quantityPost" class="form-control show__select" onchange="movePage(1)">
-                                                            <option value="0" <c:if test="${quantity == 0}">selected</c:if>>Tất cả</option>
-                                                            <option value="1" <c:if test="${quantity == 1}">selected</c:if>>1 sao</option>
-                                                            <option value="2" <c:if test="${quantity == 2}">selected</c:if>>2 sao</option>
-                                                            <option value="3" <c:if test="${quantity == 3}">selected</c:if>>3 sao</option>
-                                                            <option value="4" <c:if test="${quantity == 4}">selected</c:if>>4 sao</option>
-                                                            <option value="5" <c:if test="${quantity == 5}">selected</c:if>>5 sao</option>
 
-                                                            </select>
+                                                    <div class="show w-100 justify-content-between">
+                                                        <div class="show">
+                                                            <p class="show__title">Đánh giá</p>
+                                                            <select name="quantityPost" id="quantityPost" class="form-control show__select" onchange="movePage(1)">
+                                                                <option value="0" <c:if test="${quantity == 0}">selected</c:if>>Tất cả</option>
+                                                                <option value="1" <c:if test="${quantity == 1}">selected</c:if>>1 sao</option>
+                                                                <option value="2" <c:if test="${quantity == 2}">selected</c:if>>2 sao</option>
+                                                                <option value="3" <c:if test="${quantity == 3}">selected</c:if>>3 sao</option>
+                                                                <option value="4" <c:if test="${quantity == 4}">selected</c:if>>4 sao</option>
+                                                                <option value="5" <c:if test="${quantity == 5}">selected</c:if>>5 sao</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="d-flex" style="gap: 30px;">
+                                                                <div class="d-flex">
+                                                                    <span class="d-flex align-items-center" style="width: 5rem;">Từ ngày</span>
+                                                                    <input type="date" class="form-control" id="dateBegin" onchange="movePage(1)"
+                                                                           name="dateBegin" value="${param.dateBegin}" />
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <span class="d-flex align-items-center" style="width: 6rem;">Đến ngày</span>
+                                                                <input type="date" class="form-control" id="dateEnd" onchange="movePage(1)"
+                                                                       name="dateEnd" value="${param.dateEnd}" />
+                                                            </div>
                                                         </div>
+                                                    </div>
 
-                                                        <div id="data">
-                                                            <table class="table table-hover w-100 table-red thead-primary">
+                                                    <div id="data">
+                                                        <table class="table table-hover w-100 table-red thead-primary">
 
 
-                                                                <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                                                    <h5>Đánh giá sản phẩm</h5>
+                                                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                                                <h5>Đánh giá sản phẩm</h5>
                                                                 <%
                                                                 CustomerDAO cus_dao = new CustomerDAO();
                                                                 AccountDAO acc_dao = new AccountDAO();
@@ -630,7 +634,7 @@
             function movePage(page) {
                 event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
 
-                var textSearch = document.getElementById('textSearch').value;
+//                var textSearch = document.getElementById('textSearch').value;
                 var dateBegin = document.getElementById('dateBegin').value;
                 var dateEnd = document.getElementById('dateEnd').value;
                 var quantityPost = document.getElementById('quantityPost').value;
@@ -640,7 +644,7 @@
                     type: 'POST',
                     data: {// send data      
                         option: 'split',
-                        textSearch: textSearch,
+//                        textSearch: textSearch,
                         dateBegin: dateBegin,
                         dateEnd: dateEnd,
                         quantityPost: quantityPost,

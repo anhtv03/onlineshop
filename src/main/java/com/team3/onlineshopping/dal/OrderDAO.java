@@ -371,9 +371,12 @@ public class OrderDAO extends DBContext implements IDAO<Order> {
 
     public List<Order> getByCusId(int id, String status) {
         List<Order> list = new ArrayList<>();
-        String sql = "SELECT * FROM `Order` "
-                + "WHERE CustomerId = ? AND OrderStatus = ? \n"
-                + "order by OrderDate DESC, OrderId DESC";
+        String sql = """
+                     SELECT OrderId,OrderTitle, OrderDate, OrderTotalPrice, OrderStatus, 
+                     EmployeeId, CustomerId,AddressId FROM `Order` 
+                     WHERE CustomerId = ? AND OrderStatus = ? 
+                     order by OrderDate DESC, OrderId DESC
+                     """;
         try {
             PreparedStatement st = connection.prepareCall(sql);
             st.setInt(1, id);
@@ -381,14 +384,14 @@ public class OrderDAO extends DBContext implements IDAO<Order> {
             ResultSet rs = st.executeQuery();
             //loop until select the last object
             while (rs.next()) {
-                Order orders = new Order(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8));
+                Order orders = new Order(rs.getInt("OrderId"),
+                        rs.getString("OrderTitle"),
+                        rs.getString("OrderDate"),
+                        rs.getDouble("OrderTotalPrice"),
+                        rs.getString("OrderStatus"),
+                        rs.getInt("EmployeeId"),
+                        rs.getInt("CustomerId"),
+                        rs.getInt("AddressId"));
                 list.add(orders);
             }
             rs.close(); // Đóng ResultSet

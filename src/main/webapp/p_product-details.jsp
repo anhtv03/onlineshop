@@ -1481,12 +1481,13 @@
                                     CustomerDAO cus_dao = new CustomerDAO();
                                     AccountDAO acc_dao = new AccountDAO();
                                     ArrayList<Feedback> feedList = (ArrayList<Feedback>) request.getAttribute("feedback");
-                                    for (Feedback fback : feedList) {
-                                        Customer cus = cus_dao.getById(fback.getCusId());
-                                        Account accCustomer = acc_dao.getById(cus.getAccId()); %>
+                                    if(feedList != null){
+                                        for (Feedback fback : feedList) {
+                                            Customer cus = cus_dao.getById(fback.getCusId());
+                                            Account accCustomer = acc_dao.getById(cus.getAccId()); %>
                                     <div class="row d-flex px-5 py-3">
                                         <div class="col-md-1 text-center">
-                                            <img class="feedback__img" src="<%= accCustomer.getAccAvarUrl()%>" alt="alt"/>
+                                            <img class="feedback__img" src="<%= accCustomer.getAccAvarUrl()%>" alt="alt" loading="lazy"/>
                                         </div>
                                         <div class="col-md-11">
                                             <div class="mb-1 d-flex justify-content-between">
@@ -1503,8 +1504,15 @@
                                             <p class="text-justify" style="font-size: 13px"><%= fback.getFeedContent()%></p>
                                         </div>
                                     </div>
-                                    <%    
-                                    }
+                                    <%   
+                                        }
+                                    } else {
+                                    %>
+                                    <div class="row text-center">
+                                        Chưa có đánh giá nào!
+                                    </div>
+                                    <%
+                                        }
                                     %>
 
                                 </div>

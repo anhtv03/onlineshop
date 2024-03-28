@@ -263,7 +263,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/423422529_931280068324876_5402123020227114441_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=GJIOVC0k1PsAX_l36k0&_nc_ht=scontent.fhan18-1.fna&oh=03_AdT2vGnLNVUhiU4H96X6QdvfqioLWRYCd9NIi8nXo46hXg&oe=65FA97B9" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/salesmanLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -586,6 +586,7 @@
                 let status = select.val();
 
                 document.getElementById('toast').classList.remove('hide');
+
                 $.ajax({
                     url: 'sale_order',
                     type: 'POST',
@@ -594,13 +595,17 @@
                         status: status
                     },
                     success: function (response) {
-                        select.prop('disabled', true);
-//                        setTimeout(function () {
+                        setTimeout(function () {
                             document.getElementById('toast').classList.add('hide');
-//                        }, 500);
+                        }, 1500);
                     }
                 });
-
+                if (status === ("delivered")) {
+                    select.prop('disabled', true);
+                }
+                if (status === ("cancelled")) {
+                    select.prop('disabled', true);
+                }
             }
 
             function confirmDelete(orderId) {

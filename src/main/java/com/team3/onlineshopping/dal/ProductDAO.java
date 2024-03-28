@@ -135,7 +135,7 @@ public class ProductDAO extends DBContext implements IDAO<Product> {
             st.setInt(12, t.getProId());
 
             int rs = st.executeUpdate();
-
+            st.close(); // Đóng PreparedStatement
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -631,7 +631,7 @@ public class ProductDAO extends DBContext implements IDAO<Product> {
                 + "OR ProductName LIKE ? "
                 + "OR ProductName = ?)"
                 + "ORDER BY ProductCreatedDate DESC\n"
-                + "LIMIT 16;";
+                + "LIMIT 16";
         // Sử dụng tham số thay vì chuỗi cố định
 
         try {
@@ -699,9 +699,9 @@ public class ProductDAO extends DBContext implements IDAO<Product> {
 
     public int getCountProduct(String searchKeyword) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT COUNT(*) AS CountOfProducts\n"
+        String sql = "SELECT COUNT(*)  AS CountOfProducts\n"
                 + "FROM product"
-                + " WHERE ProductName LIKE ? \n"
+                + " WHERE ProductStatus = 'ON' and ProductName LIKE ? \n"
                 + "OR ProductName LIKE ? \n"
                 + "OR ProductName LIKE ? \n"
                 + "OR ProductName = ?;";
@@ -944,12 +944,12 @@ public class ProductDAO extends DBContext implements IDAO<Product> {
         }
         return list;
     }
-    
+
     //AnhPh
     public List<Chart> getRatingByCategoryProductDetailsId(int cateProDetailsId) {
         List<Chart> list = new ArrayList<>();
-        String sql = 
-        """
+        String sql
+                = """
             SELECT p.ProductId, p.ProductRating
             FROM product p LEFT JOIN CategoryProductDetails c ON c.CategoryProductDetailsId = p.CategoryProductDetailsId
             WHERE c.CategoryProductDetailsId = ?

@@ -44,20 +44,11 @@ public class CollectionDAO extends DBContext implements IDAO<Collection> {
 
     @Override
     public void add(Collection t) {
-        String sql = "INSERT INTO `collection`\n"
-                + "(`CollectionTitle`,\n"
-                + "`CollectionProId`,\n"
-                + "`CollectionCreatedDate`,\n"
-                + "`CollectionStatus`,\n"
-                + "`NewsId`,\n"
-                + "`EmployeeId`)\n"
-                + "VALUES\n"
-                + "(?,\n"
-                + "?,\n"
-                + "?,\n"
-                + "?,\n"
-                + "?,\n"
-                + "?);;";
+        String sql = """
+                     INSERT INTO `collection`
+                     (`CollectionTitle`,`CollectionProId`,`CollectionCreatedDate`,`CollectionStatus`,`NewsId`,`EmployeeId`)
+                     VALUES (?,?,?,?,?,?)
+                     """;
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, t.getCollectionTitle());
@@ -206,8 +197,7 @@ public class CollectionDAO extends DBContext implements IDAO<Collection> {
         }
         return list;
     }
-    
-    
+
     public List<Collection> get5SliderNewest() {
         List<Collection> list = new ArrayList<>();
         String sql = "SELECT * FROM collection WHERE CollectionStatus LIKE '%on%' ORDER BY CollectionCreatedDate DESC LIMIT 5;";

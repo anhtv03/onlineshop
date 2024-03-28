@@ -25,7 +25,7 @@ public class HtmlContent {
                     <h1>Thiết lập lại mật khẩu</h1>
                     <p>Bạn đã yêu cầu thiết lập lại mật khẩu. <br>
                         Vui lòng thiết lập lại mật khẩu của mình bằng cách click <strong>"Đặt lại mật khẩu"</strong> bên dưới:</p><br>
-                    <a href="http://localhost:9999/onlineshop/com_newpass" style="text-decoration: none;">
+                    <a href="http://localhost:9999/onlineshopping/com_newpass" style="text-decoration: none;">
                         <p style="width: 10rem;background-color: rgb(22, 22, 175);
                         color: #FFF;text-align: center;padding: 10px 5px;
                         font-weight: bold;border-radius: 2px;">Đặt lại mật khẩu</p>
@@ -86,7 +86,7 @@ public class HtmlContent {
                     + "        </p>\n"
                     + "\n";
             if (payment.equalsIgnoreCase("VNPAY")) {
-                html += "<h4>Bạn vui lòng liên hệ chúng tớ để có thể nhận lại tiền đã chuyển nhé.</h4>";
+                html += "<h4>Bạn vui lòng liên hệ chúng tớ qua mail này (ashionshopping@gmail.com) để có thể nhận lại tiền đã chuyển nhé.</h4>";
             }
         }
         html += "        <br><br>\n"

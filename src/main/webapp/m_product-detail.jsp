@@ -384,7 +384,7 @@
                 window.location.href = "ten_trang_chuyen_huong.jsp"; // Chuyển hướng trở lại màn hình người dùng
             }, 2000);
         </script>
-
+        <script src="ckeditor/ckeditor.js"></script>
     </head>
 
     <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
@@ -393,7 +393,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/423568413_220611387798284_6265991015599051178_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6xm1kK9w87wAX9TEvv_&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTwMqeyx_8lcqp09mOKsXlRojFzIL02Pvvb9Y3q1WDgZA&oe=65FA4050" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/mktLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -853,7 +853,7 @@
                                                 </c:if>
 
                                             </c:forEach>
-                                            
+
                                         </c:if>
                                         <!--ghepcode end-->
 
@@ -1050,16 +1050,11 @@
 
                                     </div>
                                 </div>
-                                <div class="ms-panel-body">
-                                    <h4 class="section-title bold">Mô tả</h4>
-
-                                    <div class="input-group" style="margin-top:-20px;">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Chi tiết</span>
-                                        </div>
-                                        <textarea class="form-control" aria-label="With textarea" name="proDescription" style="height: 150px!important;" readonly="">${p.proDescription}</textarea>
+                                <div class="col-md-12 mb-3">
+                                    <label for="description">Mô tả</label>
+                                    <div class="input-group">
+                                        <textarea rows="5" id="description" name="proDescription" class="form-control" placeholder="Thêm mô tả" value="${getProDescription}" required></textarea>
                                     </div>
-
                                 </div>
                                 <div class="ms-quick-stats" style="margin-bottom:40px;">
                                     <div class="ms-stats-grid">
@@ -1144,36 +1139,42 @@
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-                                function updateImage() {
-                                    // Truy cập form và gọi phương thức submit
-                                    const form = document.getElementById('customFile');
-                                    form.submit();
-                                }
-                                document.getElementById("categoryProduct").addEventListener("change", function () {
-                                    var form = document.getElementById("myForm"); // Lấy đối tượng form
-                                    form.submit(); // Gửi yêu cầu POST đến servlet
-                                });
-                                // Mảng chứa các ID của các trường input cần xử lý
-                                var inputIds = ["numberInput1", "numberInput2", "numberInput3", "numberInput4", "numberInput5", "numberInput6", "numberInput7", "numberInput8", "numberInput9"];
+            CKEDITOR.replace('proDescription', {
+                width: '100%',
+                height: 200
 
-                                // Lặp qua mảng các ID và gán hàm xử lý sự kiện cho từng trường input
-                                inputIds.forEach(function (inputId) {
-                                    var input = document.getElementById(inputId);
+            });
 
-                                    // Lắng nghe sự kiện khi người dùng nhập vào trường input
-                                    input.addEventListener("input", function (event) {
-                                        // Lấy giá trị hiện tại của trường input
-                                        var value = event.target.value;
+            function updateImage() {
+                // Truy cập form và gọi phương thức submit
+                const form = document.getElementById('customFile');
+                form.submit();
+            }
+            document.getElementById("categoryProduct").addEventListener("change", function () {
+                var form = document.getElementById("myForm"); // Lấy đối tượng form
+                form.submit(); // Gửi yêu cầu POST đến servlet
+            });
+            // Mảng chứa các ID của các trường input cần xử lý
+            var inputIds = ["numberInput1", "numberInput2", "numberInput3", "numberInput4", "numberInput5", "numberInput6", "numberInput7", "numberInput8", "numberInput9"];
 
-                                        // Loại bỏ tất cả các ký tự không phải số
-                                        var cleanValue = value.replace(/[^0-9]/g, "");
+            // Lặp qua mảng các ID và gán hàm xử lý sự kiện cho từng trường input
+            inputIds.forEach(function (inputId) {
+                var input = document.getElementById(inputId);
 
-                                        // Kiểm tra nếu giá trị là số âm hoặc chứa chữ, gán giá trị rỗng cho trường input
-                                        if (cleanValue < 0 || cleanValue !== value) {
-                                            event.target.value = "";
-                                        }
-                                    });
-                                });
+                // Lắng nghe sự kiện khi người dùng nhập vào trường input
+                input.addEventListener("input", function (event) {
+                    // Lấy giá trị hiện tại của trường input
+                    var value = event.target.value;
+
+                    // Loại bỏ tất cả các ký tự không phải số
+                    var cleanValue = value.replace(/[^0-9]/g, "");
+
+                    // Kiểm tra nếu giá trị là số âm hoặc chứa chữ, gán giá trị rỗng cho trường input
+                    if (cleanValue < 0 || cleanValue !== value || cleanValue > 100000000) {
+                        event.target.value = "";
+                    }
+                });
+            });
     </script>
 </body>
 

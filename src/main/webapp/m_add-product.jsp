@@ -294,7 +294,7 @@
             }
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+        <script src="ckeditor/ckeditor.js"></script>
     </head>
 
     <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
@@ -303,7 +303,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/423568413_220611387798284_6265991015599051178_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6xm1kK9w87wAX9TEvv_&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTwMqeyx_8lcqp09mOKsXlRojFzIL02Pvvb9Y3q1WDgZA&oe=65FA4050" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/mktLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -692,6 +692,11 @@
         <script src="assets/js/settings.js"></script>
 
         <script>
+                                                CKEDITOR.replace('description', {
+                                                    width: '100%',
+                                                    height: 200
+
+                                                });
                                                 function previewImage(event, previewId) {
                                                     var reader = new FileReader();
                                                     reader.onload = function () {

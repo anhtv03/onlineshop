@@ -1376,7 +1376,7 @@
                                 <div class="product--info" style="height:389px">
                                     <a href="pub_productdetails?proId=${lp.proId}">
                                         <div class="product--infoimg">
-                                            <img src="${lp.proImgDefault}" alt="">
+                                            <img src="${lp.proImgDefault}" alt="" loading="lazy">
                                         </div>
                                         <div class="product--infoprice mx-2 mt-3 ">
                                             <div style="height: 41.6px; margin-bottom: 10px">

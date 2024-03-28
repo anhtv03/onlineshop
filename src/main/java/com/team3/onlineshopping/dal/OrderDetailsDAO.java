@@ -149,12 +149,14 @@ public class OrderDetailsDAO extends DBContext implements IDAO<OrderDetails> {
                 OrderDetails u = new OrderDetails(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4));
                 return u;
             }
+            rs.close(); // Đóng ResultSet
+            st.close(); // Đóng PreparedStatement
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
-    
+
     // Thai iter3
     public void deleteByProId(int id) {
         String sql = "DELETE FROM OrderDetails \n"
@@ -181,6 +183,6 @@ public class OrderDetailsDAO extends DBContext implements IDAO<OrderDetails> {
 
 //        System.out.println(a.getByProductId(1).size());
 //        System.out.println(a.getByOrderId(6).size());
-System.out.println(a.getByOrderId(154).get(0).getProId());
+        System.out.println(a.getByOrderId(154).get(0).getProId());
     }
 }

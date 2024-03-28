@@ -278,11 +278,11 @@
 
     <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
 
-      <!-- Sidebar Navigation Left Begin -->
+        <!-- Sidebar Navigation Left Begin -->
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/423568413_220611387798284_6265991015599051178_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=6xm1kK9w87wAX9TEvv_&_nc_ht=scontent.fsgn2-4.fna&oh=03_AdTwMqeyx_8lcqp09mOKsXlRojFzIL02Pvvb9Y3q1WDgZA&oe=65FA4050" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/mktLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -431,16 +431,22 @@
                                 <div class="ms-panel-header" style="border-bottom: 0;">
                                     <h6 style="color: #FF8306;">Danh sách khách hàng</h6>
                                 </div>
-                                <div class="ms-panel-header filter" style="border-bottom: 0; padding-bottom: 0;">
-                                    <p class="filter__title" style="font-size: 16px;">Bộ lọc</p>
-                                    <div class="filter__body">
-                                        <div class="row">
-                                            <div class="common mb-4 col-md-6">
-                                                <p class="common__title">Tên/Email/Số điện thoại</p>
-                                                <input type="text" class="form-control" name="textSearch" oninput="movePage(1)"
-                                                       id="textSearch" value="${param.textSearch}" placeholder="Nhập tên/email/số điện thoại"/>
+                                <div class="ms-panel-header py-0" style="border-bottom: 0">
+                                    <!--<p class="filter__title" style="font-size: 16px;">Bộ lọc</p>-->
+                                    <div>
+                                        <div class="row mt-2">
+                                            <div class="common mb-4 col-md-3">
+                                                <p class="common__title">Trạng thái</p>
+                                                <select name="statusFilter" id="statusFilter" class="form-control table-user__body--select" onchange="movePage(1)">
+                                                    <option value="" class="select__option select__option">Tất cả</option>
+                                                    <option value="off" class="select__option select__option--disactive">Dừng
+                                                        hoạt động</option>
+                                                    <option value="on" class="select__option select__option--active">Đang hoạt
+                                                        động</option>
+                                                </select>
                                             </div>
-
+                                            <div class="common mb-4 col-md-3">
+                                            </div>
 
                                             <div class="common mb-4 col-md-3">
                                                 <p class="common__title">Số tiền đã mua từ</p>
@@ -454,47 +460,39 @@
                                                        name="numEnd" value="${param.numEnd}" />
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="common mb-4 col-md-3">
-                                                <p class="common__title">Trạng thái</p>
-                                                <select name="statusFilter" id="statusFilter" class="form-control table-user__body--select" onchange="movePage(1)">
-                                                    <option value="" class="select__option select__option">Tất cả</option>
-                                                    <option value="off" class="select__option select__option--disactive">Dừng
-                                                        hoạt động</option>
-                                                    <option value="on" class="select__option select__option--active">Đang hoạt
-                                                        động</option>
-                                                </select>
-                                            </div>
-                                            <div class="common mb-4 col-md-3">
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="ms-panel-body">
+                                <div class="ms-panel-body pt-0">
                                     <div class="table-responsive">
-                                        <div class="show">
-                                            <p class="show__title">Hiển thị</p>
-                                            <select name="quantityAccount" id="quantityAccount" class="form-control show__select" onchange="movePage(1)">
-                                                <option value="10" <c:if test="${quantity == 10}">selected</c:if>>10 tài khoản</option>
-                                                <option value="20" <c:if test="${quantity == 20}">selected</c:if>>20 tài khoản</option>
-                                                <option value="50" <c:if test="${quantity == 50}">selected</c:if>>50 tài khoản</option>
-                                                <option value="0" <c:if test="${quantity == 0}">selected</c:if>>Tất cả</option>
-                                                </select>
-                                            </div>
+                                        <div class="show justify-content-between w-100">
+                                            <div class="">
+                                                <p class="show__title ml-0">Hiển thị</p>
+                                                <select name="quantityAccount" id="quantityAccount" class="form-control show__select" onchange="movePage(1)">
+                                                    <option value="10" <c:if test="${quantity == 10}">selected</c:if>>10 tài khoản</option>
+                                                    <option value="20" <c:if test="${quantity == 20}">selected</c:if>>20 tài khoản</option>
+                                                    <option value="50" <c:if test="${quantity == 50}">selected</c:if>>50 tài khoản</option>
+                                                    <option value="0" <c:if test="${quantity == 0}">selected</c:if>>Tất cả</option>
+                                                    </select>
+                                                </div>
 
-                                            <div id="data">
-                                                <table class="table-user" >
-                                                    <tr class="table-user__header">
-                                                        <th style="width: 5%;">STT</th>
-                                                        <th style="width: 15%;">Tên</th>
-                                                        <th style="width: 20%;">Email</th>
-                                                        <th style="width: 15%;">Số điện thoại</th>
-                                                        <th style="width: 18%;">Trạng thái</th>
-                                                        <th style="width: 17%;">Tổng tiền đã mua</th>
-                                                        <th style="width: 10%;">Xem chi tiết</th>
-                                                    </tr>
+                                                <div class="common col-md-6 pr-0">
+                                                    <input type="text" class="form-control" name="textSearch" oninput="movePage(1)"
+                                                           id="textSearch" value="${param.textSearch}" placeholder="Tìm kiếm..." style="margin-top: 20px"/>
+                                            </div>
+                                        </div>
+
+                                        <div id="data">
+                                            <table class="table-user" >
+                                                <tr class="table-user__header">
+                                                    <th style="width: 5%;">STT</th>
+                                                    <th style="width: 15%;">Tên</th>
+                                                    <th style="width: 20%;">Email</th>
+                                                    <th style="width: 15%;">Số điện thoại</th>
+                                                    <th style="width: 18%;">Trạng thái</th>
+                                                    <th style="width: 17%;">Tổng tiền đã mua</th>
+                                                    <th style="width: 10%;">Xem chi tiết</th>
+                                                </tr>
 
                                                 <%
                                                     int index = 1;

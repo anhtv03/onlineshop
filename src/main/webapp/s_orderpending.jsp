@@ -262,7 +262,7 @@
         <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
             <!-- Logo -->
             <div class="logo-sn ms-d-block-lg">
-                <img style="max-width: 255px;" src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/423422529_931280068324876_5402123020227114441_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=GJIOVC0k1PsAX_l36k0&_nc_ht=scontent.fhan18-1.fna&oh=03_AdT2vGnLNVUhiU4H96X6QdvfqioLWRYCd9NIi8nXo46hXg&oe=65FA97B9" alt="logo">
+                <img style="max-width: 255px;" src="Image/Avatar/salesmanLogo.png" alt="logo">
             </div>
             <br>
             <!-- Navigation -->
@@ -474,13 +474,13 @@
                                                         <td class="text-right">${orderPrice}đ</td>
                                                         <td class="text-center">
                                                             <span>
-                                                                <a href="sale_orderdetails?orderId=${or_list.orId}">
+                                                                <a href="sale_orderdetails?orderId=${or_list.orId}&type=${type}">
                                                                     <i class="fas fa-eye" style="color: #b1a9a9; font-size: 14px;"></i>
                                                                 </a>
                                                                 <a href="javascript:void(0)" id="deleteButton" onclick="confirmDelete(${or_list.orId})">
                                                                     <i class="fa-regular fa-trash-can" style="color: #999;"></i>
                                                                 </a>
-                                                                    
+
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -559,38 +559,37 @@
         <!--pop-up notification-->                              
 
         <!-- SCRIPTS -->
-        <!-- Global Required Scripts Start -->
-        <script src="assets/js/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/perfect-scrollbar.js"></script>
-        <script src="assets/js/jquery-ui.min.js"></script>
-        <!-- Global Required Scripts End -->
-
-        <!-- Foodtech core JavaScript -->
-        <script src="assets/js/framework.js"></script>
         <script>
-                                                                function submitForm(orderId) {
-                                                                    let select = $("#status_order_" + orderId);
-                                                                    let status = select.val();
+            function submitForm(orderId) {
+                let select = $("#status_order_" + orderId);
+                let status = select.val();
 
-                                                                    $.ajax({
-                                                                        url: 'sale_order',
-                                                                        type: 'POST',
-                                                                        data: {
-                                                                            orderId: orderId,
-                                                                            status: status
-                                                                        },
-                                                                        success: function (response) {
-                                                                            document.getElementById('toast').classList.remove('hide');
-                                                                            setTimeout(function () {
-                                                                                document.getElementById('toast').classList.add('hide');
-                                                                            }, 1500);
-                                                                        }
-                                                                    });
-                                                                }
-                                                                
-                                                                function confirmDelete(orderId) {
+                document.getElementById('toast').classList.remove('hide');
+
+                $.ajax({
+                    url: 'sale_order',
+                    type: 'POST',
+                    data: {
+                        orderId: orderId,
+                        status: status
+                    },
+                    success: function (response) {
+                        setTimeout(function () {
+                            document.getElementById('toast').classList.add('hide');
+                        }, 1500);
+                    }
+                });
+                if (status === ("delivered")) {
+                    select.prop('disabled', true);
+                }
+                if (status === ("cancelled")) {
+                    select.prop('disabled', true);
+                }
+            }
+
+
+
+            function confirmDelete(orderId) {
                 var type = '${requestScope.type}';
                 var confirmation = confirm("Bạn có chắc muốn xóa không?");
                 if (confirmation) {
@@ -601,7 +600,19 @@
                     }
                 }
             }
+
         </script>
+        <!-- Global Required Scripts Start -->
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/perfect-scrollbar.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <!-- Global Required Scripts End -->
+
+        <!-- Foodtech core JavaScript -->
+        <script src="assets/js/framework.js"></script>
+
     </body>
 
 </html>

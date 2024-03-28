@@ -107,7 +107,6 @@ public class CusFeedbackServlet extends HttpServlet {
                 fee_dao.add(feed);
 
                 double avgPro = pro_dao.CalculateAVGRating(proId);
-                System.out.println(avgPro);
                 pro.setProRating(avgPro);
                 pro_dao.update(pro);
 

@@ -1479,15 +1479,16 @@
                             <i class="fas fa-file-invoice fa-xs" style="color: #629adf;"></i>
                             <a href="cus_myorder"><span class="${type == 'all' ? 'bold':''}">Đơn hàng của tôi </span>
                                 (<%
+                                    CustomerDAO cus_daos = new CustomerDAO();
+                                    OrderDAO or_daos = new OrderDAO();
+                                    Customer cus = null;
                                     if (session.getAttribute("account") != null) {
                                         Account acc = (Account) session.getAttribute("account");
-                                        
-                                        CustomerDAO cus_dao = new CustomerDAO();
-                                        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-                                        OrderDAO or_dao = new OrderDAO();
-        
-                                        Customer cus = cus_dao.getByAccountId(acc.getAccId());
-                                        List<Order> order = or_dao.getByCusId(cus.getCusId()); 
+                                        cus = cus_daos.getByAccountId(acc.getAccId());
+                                    }
+                                    
+                                    if(cus != null){
+                                        List<Order> order = or_daos.getByCusId(cus.getCusId()); 
                                         out.print(order.size());
                                     }
                                 %>)
@@ -1499,15 +1500,8 @@
                             <i class="fa-solid fa-hourglass-half" style="color: #629adf;"></i>
                             <a href="cus_myorder?type=pending"><span class="${type eq 'pending' ? 'bold':''}">Đơn hàng chờ xử lý</span>
                                 (<%
-                                    if (session.getAttribute("account") != null) {
-                                        Account acc = (Account) session.getAttribute("account");
-                                        
-                                        CustomerDAO cus_dao = new CustomerDAO();
-                                        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-                                        OrderDAO or_dao = new OrderDAO();
-        
-                                        Customer cus = cus_dao.getByAccountId(acc.getAccId());
-                                        List<Order> order = or_dao.getByCusId(cus.getCusId(), "pending");
+                                    if(cus != null){
+                                        List<Order> order = or_daos.getByCusId(cus.getCusId(), "pending");
                                         out.print(order.size());
                                     }
                                 %>)
@@ -1519,15 +1513,8 @@
                             <i class="fas fa-truck fa-xs" style="color: #629adf;"></i>
                             <a href="cus_myorder?type=delivering"><span class="${type eq 'delivering' ? 'bold':''}">Đơn hàng đang giao</span> 
                                 (<%
-                                    if (session.getAttribute("account") != null) {
-                                        Account acc = (Account) session.getAttribute("account");
-                                        
-                                        CustomerDAO cus_dao = new CustomerDAO();
-                                        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-                                        OrderDAO or_dao = new OrderDAO();
-        
-                                        Customer cus = cus_dao.getByAccountId(acc.getAccId());
-                                        List<Order> order = or_dao.getByCusId(cus.getCusId(), "delivering");  
+                                    if(cus != null){
+                                        List<Order> order = or_daos.getByCusId(cus.getCusId(), "delivering");
                                         out.print(order.size());
                                     }
                                 %>)
@@ -1539,15 +1526,8 @@
                             <i class="fas fa-clipboard-check fa-xs" style="color: #629adf;"></i>
                             <a href="cus_myorder?type=delivered"><span class="${type eq 'delivered' ? 'bold':''}">Đơn hàng đã giao </span>
                                 (<%
-                                    if (session.getAttribute("account") != null) {
-                                        Account acc = (Account) session.getAttribute("account");
-                                        
-                                        CustomerDAO cus_dao = new CustomerDAO();
-                                        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-                                        OrderDAO or_dao = new OrderDAO();
-        
-                                        Customer cus = cus_dao.getByAccountId(acc.getAccId());
-                                        List<Order> order = or_dao.getByCusId(cus.getCusId(), "delivered");
+                                    if(cus != null){
+                                        List<Order> order = or_daos.getByCusId(cus.getCusId(), "delivered");
                                         out.print(order.size());
                                     }
                                 %>)
@@ -1559,15 +1539,8 @@
                             <i class="fas fa-window-close fa-xs" style="color: #629adf;"></i>
                             <a href="cus_myorder?type=cancelled"><span class="${type eq 'cancelled' ? 'bold':''}">Đơn hàng đã hủy </span>
                                 (<%
-                                    if (session.getAttribute("account") != null) {
-                                        Account acc = (Account) session.getAttribute("account");
-                                        
-                                        CustomerDAO cus_dao = new CustomerDAO();
-                                        OrderDetailsDAO orde_dao = new OrderDetailsDAO();
-                                        OrderDAO or_dao = new OrderDAO();
-        
-                                        Customer cus = cus_dao.getByAccountId(acc.getAccId());
-                                        List<Order> order = or_dao.getByCusId(cus.getCusId(), "cancelled");
+                                    if(cus != null){
+                                        List<Order> order = or_daos.getByCusId(cus.getCusId(), "cancelled");
                                         out.print(order.size());
                                     }
                                 %>)
