@@ -235,13 +235,17 @@ public class AccountDAO extends DBContext implements IDAO<Account> {
 
     public Account getByEmailPassStatus(String accEmail, String accPass, String status) {
         String query = "SELECT * FROM account\n"
-                + "WHERE AccountEmail = ? AND AccountPassword = ? \n"
-                + " AND AccountStatus = ?";
+                + "WHERE AccountEmail = ? AND AccountPassword = ? \n";
+        if (!status.isEmpty()) {
+            query += " AND AccountStatus = ?";
+        }
         try {
             PreparedStatement st = connection.prepareStatement(query);
             st.setString(1, accEmail);
             st.setString(2, accPass);
-            st.setString(3, status);
+            if (!status.isEmpty()) {
+                st.setString(3, status);
+            }
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
@@ -461,7 +465,7 @@ public class AccountDAO extends DBContext implements IDAO<Account> {
         }
         return null;
     }
-    
+
     public Account getAccountLatest() {
         String sql = "SELECT * FROM `Account`\n"
                 + "ORDER BY AccountId DESC LIMIT 1";

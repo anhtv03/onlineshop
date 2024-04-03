@@ -57,7 +57,7 @@ public class ComRegisterServlet extends HttpServlet {
             Customer cus = new Customer(0, date, 0, acc_dao.getByEmailStatus(emailUser, "on").getAccId(), 4);
             cus_dao.add(cus);
 
-            response.sendRedirect("c_login.jsp");
+            response.sendRedirect("com_login");
         }
     }
 

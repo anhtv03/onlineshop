@@ -1,6 +1,7 @@
 package com.team3.onlineshopping.controllerCommon;
 
 import com.team3.onlineshopping.dal.AccountDAO;
+import com.team3.onlineshopping.information.UserAccount;
 import com.team3.onlineshopping.model.Account;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -55,7 +56,8 @@ public class ComChangePassServlet extends HttpServlet {
 
         if (checkCorrectPass(oldpass, acc) && checkFormatPass(newpass) && newpass.equals(cfpass)) {
             status = "success";
-            acc.setAccPass(newpass);
+//            acc.setAccPass(newpass);
+            acc.setAccPass(UserAccount.encodeToSHA1(newpass));
             acc_dao.update(acc);
             request.setAttribute("status", "success");
         }

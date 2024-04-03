@@ -63,14 +63,18 @@ public class ComLoginServlet extends HttpServlet {
         response.addCookie(cr);
 
         AccountDAO dao = new AccountDAO();
-//        Account loginAccount = dao.getByEmailPassStatus(accEmail, UserAccount.encodeToSHA1(accPass), "on");
-        Account loginAccount = dao.getByEmailPassStatus(accEmail, accPass, "on");
+        Account loginAccount = dao.getByEmailPassStatus(accEmail, UserAccount.encodeToSHA1(accPass), "");
+//        Account loginAccount = dao.getByEmailPassStatus(accEmail, accPass, "");
 
         if (loginAccount == null) {
             request.setAttribute("msg", "Sai tên đăng nhập/mật khẩu!");
             request.getRequestDispatcher("c_login.jsp").forward(request, response);
-
         } else {
+            if (loginAccount.getAccStatus().equals("off")) {
+                request.setAttribute("msg", "Tài khoản này đã bị khóa do vi phạm tiêu chuẩn!");
+                request.getRequestDispatcher("c_login.jsp").forward(request, response);
+                return;
+            }
             HttpSession session = request.getSession();
             session.setAttribute("account", loginAccount);
 //            request.getRequestDispatcher("pub_home").forward(request, response);

@@ -1253,10 +1253,16 @@
                                             <c:forEach items="${requestScope.cartProduct}" var="cp">
                                                 <jsp:useBean class="com.team3.onlineshopping.dal.ProductDAO" id="product"/>
                                                 <jsp:useBean class="com.team3.onlineshopping.dal.CategorySizeDAO" id="productSize"/>
+                                                <jsp:useBean class="com.team3.onlineshopping.dal.ProductSizeDAO" id="proSize"/>
                                                 <tr>
                                                     <!--===product information=====-->
                                                     <td class="cart__product__item d-flex">
-                                                        <input type="checkbox" name="choose" value="${cp.cartId}"/>
+                                                        <c:if test="${proSize.getByProCateSizeId(cp.proId, cp.cateSizeId).proSizeQuantity > 0}">
+                                                            <input type="checkbox" name="choose" value="${cp.cartId}"/>
+                                                        </c:if>
+                                                        <c:if test="${proSize.getByProCateSizeId(cp.proId, cp.cateSizeId).proSizeQuantity <= 0}">
+                                                            <input type="checkbox" name="choose" disabled=""/>
+                                                        </c:if>
                                                         <input type="hidden" name="cartId" value="${cp.cartId}"/>
                                                         <a href="pub_productdetails?proId=${cp.proId}" class="cart__product__item d-flex">
                                                             <div class="cart__product__item--image">
@@ -1421,7 +1427,14 @@
                 </div>
                 <div class="toast__body">
                     <p class="toast__body--msg">
-                        <c:if test="${errorQuantity eq 'errorQuantity'}">Không thể tăng quá số lượng còn lại!</c:if>
+                        <c:if test="${errorQuantity eq 'errorQuantity'}">
+                            Không thể tăng quá số lượng còn lại!
+                            <%
+                                if (session.getAttribute("error") != null) {
+                                    session.removeAttribute("error");
+                                }
+                            %>
+                        </c:if>
                     </p>
                 </div>
             </div>

@@ -51,7 +51,8 @@ public class PubCartServlet extends HttpServlet {
         CartDAO cart_dao = new CartDAO();
         CustomerDAO cus_dao = new CustomerDAO();
         HttpSession session = request.getSession();
-
+        
+//        session.removeAttribute("error");
         Account acc = (Account) session.getAttribute("account");
         String error = (String) session.getAttribute("error");
 

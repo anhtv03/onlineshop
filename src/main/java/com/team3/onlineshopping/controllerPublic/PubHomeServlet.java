@@ -66,7 +66,7 @@ public class PubHomeServlet extends HttpServlet {
         request.setAttribute("rdnumVay", ProListVay.get(ranVay));
         request.setAttribute("rdnumLot", ProListLot.get(ranLot));
         //-----------------------------------------------------
-        List<Collection> listCollection = cd.getAll();
+        List<Collection> listCollection = cd.getAllByStatus("on");
         session.setAttribute("listCollection", listCollection);
         //-----------------------------------------------------
 
@@ -106,6 +106,17 @@ public class PubHomeServlet extends HttpServlet {
         request.setAttribute("ProDaoVay", ProListVay);
         request.setAttribute("ProDaoLot", ProListLot);
         request.setAttribute("ProHot", ProListHot);
+        
+        Random ran=new Random();
+        int ranAo=ran.nextInt(16);
+        int ranQuan=ran.nextInt(16);
+        int ranVay=ran.nextInt(5);
+        int ranLot=ran.nextInt(16);
+        
+        request.setAttribute("rdnumAo", ProListAo.get(ranAo));
+        request.setAttribute("rdnumQuan", ProListQuan.get(ranQuan));
+        request.setAttribute("rdnumVay", ProListVay.get(ranVay));
+        request.setAttribute("rdnumLot", ProListLot.get(ranLot));
         //-----------------------------------------------------
         request.getRequestDispatcher("p_home.jsp").forward(request, response);
 //        doGet(request, response);

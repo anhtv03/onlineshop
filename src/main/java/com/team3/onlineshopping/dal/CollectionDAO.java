@@ -25,6 +25,7 @@ public class CollectionDAO extends DBContext implements IDAO<Collection> {
         try {
             PreparedStatement st = connection.prepareCall(sql);
             ResultSet rs = st.executeQuery();
+            
             //loop until select the last object
             while (rs.next()) {
                 Collection orders = new Collection(rs.getInt(1),
@@ -136,6 +137,29 @@ public class CollectionDAO extends DBContext implements IDAO<Collection> {
 
     // ThaiNH iter3
     // lay ra danh sach collection
+    public List<Collection> getAllByStatus(String status) {
+        List<Collection> list = new ArrayList<>();
+        String sql = "SELECT * FROM Collection WHERE CollectionStatus = '" + status + "'";
+        try {
+            PreparedStatement st = connection.prepareCall(sql);
+            ResultSet rs = st.executeQuery();
+            //loop until select the last object
+            while (rs.next()) {
+                Collection orders = new Collection(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7));
+                list.add(orders);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+
     public List<Collection> getListCol(String search, String status) {
         List<Collection> list = new ArrayList<>();
         String sql = "SELECT * FROM Collection WHERE 1 = 1";
@@ -224,10 +248,12 @@ public class CollectionDAO extends DBContext implements IDAO<Collection> {
     public static void main(String[] args) {
         CollectionDAO a = new CollectionDAO();
 //        System.out.println(a.getAll().size());
-        System.out.println(a.getListCol(null, null).size());
-        System.out.println(a.getListColPaging(null, null, 1).size());
-        Collection c = new Collection("bộ", "1, 2", "2024-02-23", "on", 32, 2);
-        a.add(c);
+//        System.out.println(a.getListCol(null, null).size());
+//        System.out.println(a.getListColPaging(null, null, 1).size());
+//        Collection c = new Collection("bộ", "1, 2", "2024-02-23", "on", 32, 2);
+//        a.add(c);
 
+        List<Collection> b = a.getAllByStatus("on");
+        System.out.println(b.size());
     }
 }

@@ -6,6 +6,7 @@ package com.team3.onlineshopping.controllerCommon;
 
 import com.team3.onlineshopping.dal.AccountDAO;
 import com.team3.onlineshopping.information.Token;
+import com.team3.onlineshopping.information.UserAccount;
 import com.team3.onlineshopping.model.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -70,7 +71,8 @@ public class ComNewPasswordServlet extends HttpServlet {
             else{
                 AccountDAO acc_dao = new AccountDAO();
                 Account acc = acc_dao.getById(id.intValue());
-                acc.setAccPass(pass);
+//                acc.setAccPass(pass);
+                acc.setAccPass(UserAccount.encodeToSHA1(pass));
                 acc_dao.update(acc);
 
                 // REMOVE session

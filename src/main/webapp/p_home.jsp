@@ -1141,8 +1141,8 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0" >
                                 <div class="categories__item set-bg" data-setbg="${rdnumAo.proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);" >
-                                        <h4 >Áo</h4>
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: #0000007a;" >
+                                        <h4 style="color: #FFF">Áo</h4>
                                         <p style="color: #ffffff">${countAo} sản phẩm</p>
 
                                     </div>
@@ -1150,8 +1150,8 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                                 <div class="categories__item set-bg" data-setbg="${rdnumQuan.proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);;">
-                                        <h4>Quần</h4>
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: #0000007a">
+                                        <h4 style="color: #FFF">Quần</h4>
                                         <p style="color: #ffffff">${countQuan} sản phẩm</p>
 
                                     </div>
@@ -1159,8 +1159,8 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                                 <div class="categories__item set-bg" data-setbg="${rdnumVay.proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);">
-                                        <h4>Váy</h4>
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: #0000007a">
+                                        <h4 style="color: #FFF">Váy</h4>
                                         <p style="color: #ffffff">${countVay} sản phẩm</p>
 
                                     </div>
@@ -1168,8 +1168,8 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                                 <div class="categories__item set-bg" data-setbg="${rdnumLot.proImgDefault}">
-                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: rgb(0 0 0 / 20%);">
-                                        <h4>Ðồ lót</h4>
+                                    <div class="categories__text" style="background-color: #fff;padding: 10px 20px; background: #0000007a">
+                                        <h4 style="color: #FFF">Ðồ lót</h4>
                                         <p style="color: #ffffff">${countLot} sản phẩm</p>
 
                                     </div>
